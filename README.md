@@ -7,7 +7,9 @@
 
 ## Demo
 
-![Demo](./audio_mixer_sample.mp4)
+※音が出ます
+
+https://github.com/user-attachments/assets/7c5e8658-91d0-456f-9859-0ed24beb81b3
 
 ## Audio Sources
 
