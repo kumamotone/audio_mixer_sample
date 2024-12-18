@@ -1,16 +1,17 @@
 # audio_mixer_sample
 
-A new Flutter project.
+* A sample app for interactive music mixing
+* Mix drum loop and percussion loop
+* Mix drum and percussion loops using a slider
+* Toggle playback with play/stop button
 
-## Getting Started
+## Audio Sources
 
-This project is a starting point for a Flutter application.
+* Drum Loop
+  * <https://pixabay.com/ja/sound-effects/cinematic-drum-loop-128bpm-240909/>
+* Percussion Loop
+  * <https://pixabay.com/ja/sound-effects/latin-percussion-loop-128bpm-240910/>
 
-A few resources to get you started if this is your first Flutter project:
+## Note
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Audio doesn't play on iOS simulator. Works fine on Android emulator, Android device, and physical iOS device.
