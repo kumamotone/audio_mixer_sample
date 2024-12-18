@@ -31,7 +31,7 @@ class AudioMixerPage extends StatefulWidget {
 class _AudioMixerPageState extends State<AudioMixerPage> {
   final _player1 = AudioPlayer();
   final _player2 = AudioPlayer();
-  double _crossfadeValue = 0.5;
+  double _crossfadeValue = 0.0;
   bool _isPlaying = false;
 
   @override
@@ -46,8 +46,10 @@ class _AudioMixerPageState extends State<AudioMixerPage> {
           .setAsset('assets/audio/cinematic-drum-loop-128bpm-240909.mp3');
       await _player2
           .setAsset('assets/audio/latin-percussion-loop-128bpm-240910.mp3');
-      _player1.setVolume(0.5);
-      _player2.setVolume(0.5);
+      _player1.setVolume(1.0);
+      _player2.setVolume(0.0);
+      await _player1.setLoopMode(LoopMode.all);
+      await _player2.setLoopMode(LoopMode.all);
     } catch (e) {
       debugPrint('Setup error: $e');
     }
@@ -81,6 +83,26 @@ class _AudioMixerPageState extends State<AudioMixerPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'オーディオミキサー',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Track 1: ${((1.0 - _crossfadeValue) * 100).toInt()}%',
+                  style: const TextStyle(fontSize: 16),
+                ),
+                const SizedBox(width: 20),
+                Text(
+                  'Track 2: ${(_crossfadeValue * 100).toInt()}%',
+                  style: const TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
             SizedBox(
               width: 250,
               child: Slider(
@@ -94,10 +116,14 @@ class _AudioMixerPageState extends State<AudioMixerPage> {
                 },
               ),
             ),
+            const Text(
+              '← Track 1 / Track 2 →',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _togglePlayback,
-              child: Text(_isPlaying ? 'Stop' : 'Play'),
+              child: Text(_isPlaying ? '停止' : '再生'),
             ),
           ],
         ),
