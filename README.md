@@ -5,6 +5,10 @@
 * Mix drum and percussion loops using a slider
 * Toggle playback with play/stop button
 
+## Demo
+
+![Demo](./audio_mixer_sample.mp4)
+
 ## Audio Sources
 
 * Drum Loop
